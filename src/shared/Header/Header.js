@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
-
     return (
         <div className="navbar bg-base-100 border-b-4 border-indigo-900">
             <div className="navbar-start">
@@ -16,7 +15,7 @@ const Header = () => {
                         <li><Link to="/login">Login</Link></li>
                     </ul>
                 </div>
-                <Link to="/" className="pl-0 btn btn-ghost normal-case text-black text-3xl font-bold">Box Studio</Link>
+                <Link to="/" className="pl-0 btn btn-ghost normal-case italic text-black text-3xl font-bold">Box<span className='underline ml-2'>Studio</span></Link>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal p-0 font-semibold underline ">
