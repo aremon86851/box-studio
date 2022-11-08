@@ -15,9 +15,9 @@ const ServicesDetails = () => {
                 </PhotoProvider>
                 <div className="card-body">
                     <h2 className="card-title text-3xl">Name : <span className='italic font-bold text-red-700'>{title}</span></h2>
-                    <p className='text-left my-5'>{description}</p>
+                    <p className='my-5 text-justify'>{description}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <p className='text-left text-3xl font-semibold'><span>$</span><span>{price}</span></p>
                     </div>
                 </div>
             </div>
