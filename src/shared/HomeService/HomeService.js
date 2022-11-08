@@ -1,11 +1,17 @@
 import React from 'react';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 import { Link } from 'react-router-dom';
 
 const HomeService = ({ service }) => {
     const { description, price, title, _id, img } = service
     return (
         <div className="card bg-base-100 shadow-xl">
-            <figure><img src={img} alt="Shoes" className='w-full h-60' /></figure>
+            <PhotoProvider>
+                <PhotoView src={img}>
+                    <figure><img src={img} alt="Shoes" className='w-full h-60 cursor-pointer' /></figure>
+                </PhotoView>
+            </PhotoProvider>
             <div className="card-body">
                 <h2 className="card-title font-bold">{title}</h2>
                 <p className='text-left italic'>
@@ -15,8 +21,9 @@ const HomeService = ({ service }) => {
                         </> : description
                     }
                 </p>
-                <div className="card-actions justify-end">
-                    <button className="btn btn-primary italic">Read more...</button>
+                <div className="card-actions justify-between items-center mt-5">
+                    <p className='text-left text-3xl font-semibold'><span>$</span><span>{price}</span></p>
+                    <button className="btn btn-primary italic">View details</button>
                 </div>
             </div>
         </div>

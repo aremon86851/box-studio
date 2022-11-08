@@ -3,7 +3,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import AboutMe from './AboutMe/AboutMe';
 import Achivement from './Achivement/Achivement';
 import Banner from './Banner/Banner';
-import HomeService from './HomeService/HomeService';
+import HomeService from '../../shared/HomeService/HomeService';
 import MyWorks from './MyWorks/MyWorks';
 
 const Home = () => {
