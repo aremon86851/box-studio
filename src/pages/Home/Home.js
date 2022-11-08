@@ -25,7 +25,7 @@ const Home = () => {
                 <AboutMe></AboutMe>
             </div>
             <div>
-                <h2 className='text-5xl font-bold text-red-600 italic mt-16'>My Works</h2>
+                <h2 className='text-5xl font-bold text-red-600 italic mt-16 mb-16'>My Works</h2>
                 <MyWorks></MyWorks>
             </div>
             <div>
