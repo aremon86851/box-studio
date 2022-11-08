@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { ReactContext } from '../../AuthProvider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 
-const notify = () => toast('Here is your toast.');
 
 const Signup = () => {
     const { createUser } = useContext(ReactContext)
@@ -16,10 +15,10 @@ const Signup = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user)
-                toast('User successfully added!', {
+                toast('User successfully created !', {
                     icon: '👏',
                 });
+                form.reset()
             })
             .catch(err => console.log(err))
     }
