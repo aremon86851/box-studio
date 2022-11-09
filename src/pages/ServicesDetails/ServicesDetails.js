@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { useLoaderData } from 'react-router-dom';
+import AllReviews from '../../shared/AllReviews/AllReviews';
+import AddReview from '../Services/AddReview/AddReview';
 
 const ServicesDetails = () => {
     const { description, img, price, title, _id } = useLoaderData()
+    const [revInfo, setRevInfo] = useState([])
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews/${_id}`)
+            .then(res => res.json())
+            .then(data => setRevInfo(data))
+    }, [_id])
     return (
         <div className='grid grid-cols-3 gap-5'>
             <div className="card my-10 col-span-2">
@@ -20,9 +29,15 @@ const ServicesDetails = () => {
                         <p className='text-left text-3xl font-semibold'><span>$</span><span>{price}</span></p>
                     </div>
                 </div>
+                <div>
+                    <AddReview id={_id}></AddReview>
+                </div>
             </div>
-            <div>
-                <h2>Review page</h2>
+            <div className='mt-10'>
+                <h2 className='text-3xl font-semibold mb-2'>Review</h2>
+                {
+                    revInfo.map(review => <AllReviews key={review._id} review={review}></AllReviews>)
+                }
             </div>
         </div>
     );

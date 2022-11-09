@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactContext } from '../../AuthProvider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import SocialLogin from '../../shared/SoialLogin/SoialLogin'
 
 const Login = () => {
     const { login } = useContext(ReactContext)
@@ -38,6 +39,9 @@ const Login = () => {
                             <label className="label">
                                 <p className='text-left'><small> <Link to="/signup" className="label-text-alt link link-hover underline italic text-blue-500 font-semibold">Create an account ?</Link></small></p>
                             </label>
+                        </div>
+                        <div>
+                            <SocialLogin></SocialLogin>
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
