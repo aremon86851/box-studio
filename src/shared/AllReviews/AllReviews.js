@@ -1,7 +1,6 @@
 import React from 'react';
 
 const AllReviews = ({ review }) => {
-    console.log(review)
     const { email, img, name, yourReview } = review;
     return (
         <div className="card gap-2 card-side bg-base-100 shadow-xl my-5">
