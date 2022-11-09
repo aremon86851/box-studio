@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { ReactContext } from '../../AuthProvider/AuthProvider';
 
 const Footer = () => {
+    const { user } = useContext(ReactContext)
     return (
         <div>
             <footer className="footer footer-center p-10 bg-gray-800 text-white rounded">
@@ -9,8 +11,12 @@ const Footer = () => {
                     <Link to="/" className="link link-hover">Home</Link>
                     <Link to="/blog" className="link link-hover">Blog</Link>
                     <Link to="/blog" className="link link-hover">Services</Link>
-                    <Link to="/myReview" className="link link-hover">My Review</Link>
-                    <Link to="/addService" className="link link-hover">Add Review</Link>
+                    {
+                        user?.email ? <>
+                            <Link to="/myReview" className="link link-hover">My Review</Link>
+                            <Link to="/addService" className="link link-hover">Add Service</Link>
+                        </> : <Link to="/login" className="link link-hover">Login</Link>
+                    }
                 </div>
                 <div>
                     <div className="grid grid-flow-col gap-4">
