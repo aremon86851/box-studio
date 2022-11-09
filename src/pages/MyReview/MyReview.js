@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { ReactContext } from '../../AuthProvider/AuthProvider';
 import ReviewsDetails from './ReviewsDetails/ReviewsDetails';
 
@@ -10,7 +11,25 @@ const MyReview = () => {
             .then(res => res.json())
             .then(data => setUserReviews(data))
     }, [user?.email])
-    console.log(userReviews)
+    const [newReview, setNewReview] = useState(userReviews)
+
+    const handleDelete = id => {
+        fetch(`http://localhost:5000/reviews/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    const remainingReview = userReviews.filter(rev => rev._id !== id)
+                    setUserReviews(remainingReview)
+                    toast('Review deleted successfully!', {
+                        icon: '👏',
+                    });
+                }
+            })
+
+    }
     return (
         <div className='my-10 '>
             <h2 className='text-4xl font-semibold italic my-2'>Total Review : <span className='text-red-500'>{userReviews?.length}</span></h2>
@@ -19,8 +38,9 @@ const MyReview = () => {
                 userReviews?.length > 0 ? <>
                     <div className='md:mx-10 mx-0 '>
                         {
-                            userReviews?.map(review => <ReviewsDetails key={review._id} review={review}></ReviewsDetails>)
+                            userReviews?.map(review => <ReviewsDetails key={review._id} handleDelete={handleDelete} review={review}></ReviewsDetails>)
                         }
+                        <Toaster />
                     </div>
                 </> : <div className='flex items-center justify-center min-h-screen'><h2 className='my-auto text-5xl italic font-semibold underline'>"No review were added"</h2></div>
             }

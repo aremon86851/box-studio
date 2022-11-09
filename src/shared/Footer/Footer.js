@@ -10,7 +10,7 @@ const Footer = () => {
                 <div className="grid grid-flow-col gap-4">
                     <Link to="/" className="link link-hover">Home</Link>
                     <Link to="/blog" className="link link-hover">Blog</Link>
-                    <Link to="/blog" className="link link-hover">Services</Link>
+                    <Link to="/services" className="link link-hover">Services</Link>
                     {
                         user?.email ? <>
                             <Link to="/myReview" className="link link-hover">My Review</Link>

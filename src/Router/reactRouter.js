@@ -9,6 +9,7 @@ import ServicesDetails from '../pages/ServicesDetails/ServicesDetails'
 import Login from '../pages/Login/Login'
 import Signup from '../pages/Signup/Signup'
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
+import Update from '../pages/Update/Update'
 
 const router = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <Signup></Signup>
+            },
+            {
+                path: '/update/:id',
+                element: <Update></Update>,
             }
         ]
     }

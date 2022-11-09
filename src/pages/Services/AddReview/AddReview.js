@@ -36,7 +36,10 @@ const AddReview = ({ id }) => {
                 });
                 return res.json()
             })
-            .then(err => console.error(err))
+            .then(data => {
+                console.log(data)
+                form.reset()
+            })
 
     }
     return (
