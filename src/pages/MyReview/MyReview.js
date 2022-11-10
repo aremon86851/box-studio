@@ -11,7 +11,6 @@ const MyReview = () => {
             .then(res => res.json())
             .then(data => setUserReviews(data))
     }, [user?.email])
-    const [newReview, setNewReview] = useState(userReviews)
 
     const handleDelete = id => {
         fetch(`http://localhost:5000/reviews/${id}`, {

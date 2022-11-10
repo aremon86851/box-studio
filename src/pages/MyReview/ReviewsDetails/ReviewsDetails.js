@@ -22,7 +22,7 @@ const ReviewsDetails = ({ review, handleDelete }) => {
                 </div>
                 <div className='col-span-1 flex items-center justify-end'>
                     <div>
-                        <Link to="/update"><button className='btn mr-5'>Edit review</button></Link>
+                        <Link to={`/update/${_id}`}><button className='btn mr-5'>Edit review</button></Link>
                         <button onClick={() => handleDelete(_id)} className='btn'>Delete</button>
                     </div>
                 </div>
