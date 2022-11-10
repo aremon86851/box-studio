@@ -19,7 +19,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/homeService')
+                loader: () => fetch('https://assignment-11-server-teal-eight.vercel.app/homeService')
             },
             {
                 path: '/blog',
@@ -32,12 +32,12 @@ const router = createBrowserRouter([
             {
                 path: '/services',
                 element: <Services></Services>,
-                loader: () => fetch('http://localhost:5000/services')
+                loader: () => fetch('https://assignment-11-server-teal-eight.vercel.app/services')
             },
             {
                 path: '/services/:id',
                 element: <ServicesDetails></ServicesDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-server-teal-eight.vercel.app/services/${params.id}`)
             },
             {
                 path: '/addService',
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <Update></Update>,
-                loader: ({ params }) => fetch(`http://localhost:5000/update/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-server-teal-eight.vercel.app/update/${params.id}`)
             }
         ]
     }

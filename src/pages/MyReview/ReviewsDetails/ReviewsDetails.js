@@ -7,7 +7,7 @@ const ReviewsDetails = ({ review, handleDelete }) => {
     const { email, img, name, yourReview, serviceId, _id } = review;
     // Get reviews using id 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${serviceId}`)
+        fetch(`https://assignment-11-server-teal-eight.vercel.app/services/${serviceId}`)
             .then(res => res.json())
             .then(data => setServiceName(data))
     }, [serviceId])

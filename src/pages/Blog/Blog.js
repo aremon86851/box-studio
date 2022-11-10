@@ -4,7 +4,7 @@ import { useTitle } from '../../hooks/useTitle';
 const Blog = () => {
     useTitle('Blog')
     return (
-        <div className='my-10 mx-20'>
+        <div className='my-10 mx-2 md:mx-5 lg:mx-20'>
             <div>
                 <h2 className='text-2xl text-left font-semibold italic'><span>Q : </span>What is the difference between SQL and NoSql database ? </h2>
                 <h3 className='text-left mt-5 ml-5 text-xl font-semibold italic'><span>A : </span><span className='underline'>SQl db: </span><span>A SQL Database follows a table like structure which can have an

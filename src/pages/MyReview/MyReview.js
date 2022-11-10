@@ -10,7 +10,7 @@ const MyReview = () => {
     useTitle('My Review')
     // Review load via query in fetch
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?name=${user?.email}`, {
+        fetch(`https://assignment-11-server-teal-eight.vercel.app/reviews?name=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -20,7 +20,7 @@ const MyReview = () => {
     }, [user?.email])
     // Handler
     const handleDelete = id => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://assignment-11-server-teal-eight.vercel.app/reviews/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

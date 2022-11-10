@@ -15,7 +15,7 @@ const Services = () => {
         return <button className="btn btn-square loading bg-white text-black border-0"></button>
     }
     return (
-        <div className='grid grid-cols-3 gap-5 my-10'>
+        <div className='grid grid-cols-1 mx-5 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10'>
             {
                 services.map(service => <HomeService key={service._id} service={service}></HomeService>)
             }

@@ -12,9 +12,9 @@ import img8 from '../../../images/myworks/8.jpg'
 
 const MyWorks = () => {
     return (
-        <div>
+        <div className='mx-5'>
             <PhotoProvider>
-                <div className='grid grid-cols-4 gap-2'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2'>
                     <PhotoView src={img1}>
                         <img src={img1} alt="" className='w-full h-full cursor-pointer' />
                     </PhotoView>

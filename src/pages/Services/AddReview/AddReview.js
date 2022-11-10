@@ -24,7 +24,7 @@ const AddReview = ({ id, revInfo, setRevInfo }) => {
             yourReview: review
         }
         // Add review via post fetch
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://assignment-11-server-teal-eight.vercel.app/reviews', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -39,7 +39,7 @@ const AddReview = ({ id, revInfo, setRevInfo }) => {
             })
             .then(data => {
                 console.log(data)
-                const addNewRev = [...revInfo, reviews]
+                const addNewRev = [reviews, ...revInfo]
                 setRevInfo(addNewRev)
                 form.reset()
             })
@@ -48,7 +48,7 @@ const AddReview = ({ id, revInfo, setRevInfo }) => {
     return (
         <div className="">
             <form onSubmit={handleReviewSubmit}>
-                <div className='grid grid-cols-2 gap-5'>
+                <div className='grid md:grid-cols-2 gap-5'>
                     <div className="w-full">
                         <label className="label">
                             <span className="label-text">Name</span>

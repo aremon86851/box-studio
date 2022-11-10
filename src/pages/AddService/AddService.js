@@ -24,7 +24,7 @@ const AddService = () => {
             email
         }
         // Service add via post fetch
-        fetch('http://localhost:5000/services', {
+        fetch('https://assignment-11-server-teal-eight.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -44,9 +44,9 @@ const AddService = () => {
 
     }
     return (
-        <div className='my-7'>
+        <div className='my-7 mx-5 md:mx-2'>
             <form onSubmit={handleSarviceAdded}>
-                <div className='grid grid-cols-2 gap-5'>
+                <div className='grid md:grid-cols-2 gap-5'>
                     <div className="w-full">
                         <label className="label">
                             <span className="label-text">Service Name</span>
@@ -60,7 +60,7 @@ const AddService = () => {
                         <input type="url" placeholder="image url" name='imgUrl' className="input input-bordered w-full" required />
                     </div>
                 </div>
-                <div className=' grid grid-cols-2 gap-5'>
+                <div className=' grid md:grid-cols-2 gap-5'>
                     <div className="w-full">
                         <label className="label">
                             <span className="label-text">Email</span>

@@ -17,7 +17,7 @@ const Home = () => {
             {/* Home Service Section */}
             <div className='mb-10'>
                 <h2 className='text-5xl font-bold text-red-600 italic mt-16'>Services</h2>
-                <div className='grid grid-cols-3 gap-7 mt-8 mb-10'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-8 mb-10 mx-5 md:mx-0'>
                     {
                         services.map(service => <HomeService key={service._id} service={service}></HomeService>)
                     }
@@ -25,11 +25,11 @@ const Home = () => {
                 <Link to="/services"><button className="btn btn-primary italic mt-5">See all..</button></Link>
             </div>
             {/* About me section */}
-            <div>
+            <div className='mx-5 md:mx-0'>
                 <AboutMe></AboutMe>
             </div>
             {/* My works page */}
-            <div>
+            <div className="">
                 <h2 className='text-5xl font-bold text-red-600 italic mt-16 mb-16'>My Works</h2>
                 <MyWorks></MyWorks>
             </div>

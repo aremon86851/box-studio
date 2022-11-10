@@ -10,7 +10,7 @@ const Update = () => {
     const handleUpdate = event => {
         event.preventDefault();
         const reviews = event.target.description.value;
-        fetch(`http://localhost:5000/update/${infos._id}`, {
+        fetch(`https://assignment-11-server-teal-eight.vercel.app/update/${infos._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
