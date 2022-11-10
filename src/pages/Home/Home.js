@@ -8,7 +8,6 @@ import MyWorks from './MyWorks/MyWorks';
 
 const Home = () => {
     const services = useLoaderData()
-    console.log(services)
     return (
         <div>
             <Banner></Banner>

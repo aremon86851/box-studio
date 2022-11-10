@@ -8,6 +8,10 @@ import HomeService from '../../shared/HomeService/HomeService';
 
 const Services = () => {
     const services = useLoaderData()
+    const { loading } = useContext(ReactContext)
+    if (loading) {
+        return <button className="btn btn-square loading bg-white text-black border-0"></button>
+    }
     return (
         <div className='grid grid-cols-3 gap-5 my-10'>
             {

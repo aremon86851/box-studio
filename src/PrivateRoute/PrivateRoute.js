@@ -6,7 +6,7 @@ const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(ReactContext)
     const location = useLocation()
     if (loading) {
-        return <h2>loading...</h2>
+        return <button className="btn btn-square loading bg-white text-black border-0"></button>
     }
     if (user) {
         return children;

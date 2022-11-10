@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { ReactContext } from '../../AuthProvider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import { jwtToken } from '../../utilitis/utility';
 
 const SoialLogin = () => {
     const { googleLogin } = useContext(ReactContext)
@@ -11,6 +12,8 @@ const SoialLogin = () => {
                 toast('User successfully logged in with google!', {
                     icon: '👏',
                 });
+                const loggedUser = user?.email;
+                jwtToken(loggedUser)
             })
             .catch(err => console.error(err))
     }

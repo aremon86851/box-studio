@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ReactContext } from '../../AuthProvider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 import SocialLogin from '../../shared/SoialLogin/SoialLogin'
+import { jwtToken } from '../../utilitis/utility';
 
 const Login = () => {
     const { login } = useContext(ReactContext)
@@ -17,6 +18,8 @@ const Login = () => {
                 toast('User successfully logged in!', {
                     icon: '👏',
                 });
+                const loggedUser = user?.email;
+                jwtToken(loggedUser)
                 form.reset()
             })
     }
