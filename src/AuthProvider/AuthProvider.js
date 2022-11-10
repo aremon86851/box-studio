@@ -15,25 +15,32 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
 
 
-    // Create User With Email
+    // Create User With Email and password
     const createUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
+
+    // Signin with email and password
     const login = (email, password) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
+
+    // Log out with email and password
     const logOut = () => {
         setLoading(true)
         return signOut(auth)
     }
 
+    // Login with google
     const googleLogin = () => {
         setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
 
+
+    // Get current user
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
@@ -43,6 +50,8 @@ const AuthProvider = ({ children }) => {
             return unsubscribe()
         }
     }, [])
+
+    // Here is all value for react context
     const allValue = {
         user, createUser, login, logOut, googleLogin, loading
     }

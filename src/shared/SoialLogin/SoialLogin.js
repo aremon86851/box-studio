@@ -5,6 +5,8 @@ import { jwtToken } from '../../utilitis/utility';
 
 const SoialLogin = () => {
     const { googleLogin } = useContext(ReactContext)
+
+    // Google login added
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTitle } from '../../../hooks/useTitle';
 
 const ReviewsDetails = ({ review, handleDelete }) => {
     const [serviceName, setServiceName] = useState({})
     const { email, img, name, yourReview, serviceId, _id } = review;
+    // Get reviews using id 
     useEffect(() => {
         fetch(`http://localhost:5000/services/${serviceId}`)
             .then(res => res.json())

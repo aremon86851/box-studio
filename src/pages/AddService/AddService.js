@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactContext } from '../../AuthProvider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import { useTitle } from '../../hooks/useTitle';
 
 const AddService = () => {
     const { user } = useContext(ReactContext)
+    useTitle('Add Service')
     const userEmail = user?.email
     const handleSarviceAdded = event => {
         event.preventDefault()
@@ -21,6 +23,7 @@ const AddService = () => {
             description,
             email
         }
+        // Service add via post fetch
         fetch('http://localhost:5000/services', {
             method: 'POST',
             headers: {

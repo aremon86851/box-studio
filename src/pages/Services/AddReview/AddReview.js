@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { ReactContext } from '../../../AuthProvider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 
-const AddReview = ({ id }) => {
+const AddReview = ({ id, revInfo, setRevInfo }) => {
     const { user } = useContext(ReactContext)
     const userEmail = user?.email
+    console.log(revInfo)
 
     const handleReviewSubmit = event => {
         event.preventDefault()
@@ -14,7 +15,7 @@ const AddReview = ({ id }) => {
         const imgUrl = form.imgUrl.value;
         const email = user?.email || "Please login first";
         const review = form.review.value;
-
+        // Service object
         const reviews = {
             serviceId: id,
             name: name,
@@ -22,7 +23,7 @@ const AddReview = ({ id }) => {
             email,
             yourReview: review
         }
-
+        // Add review via post fetch
         fetch('http://localhost:5000/reviews', {
             method: "POST",
             headers: {
@@ -38,6 +39,8 @@ const AddReview = ({ id }) => {
             })
             .then(data => {
                 console.log(data)
+                const addNewRev = [...revInfo, reviews]
+                setRevInfo(addNewRev)
                 form.reset()
             })
 

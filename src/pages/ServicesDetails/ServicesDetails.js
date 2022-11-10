@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { useLoaderData } from 'react-router-dom';
+import { useTitle } from '../../hooks/useTitle';
 import AllReviews from '../../shared/AllReviews/AllReviews';
 import AddReview from '../Services/AddReview/AddReview';
 
 const ServicesDetails = () => {
     const { description, img, price, title, _id } = useLoaderData()
     const [revInfo, setRevInfo] = useState([])
-
+    useTitle('Service Details')
     useEffect(() => {
         fetch(`http://localhost:5000/reviews/${_id}`)
             .then(res => res.json())
@@ -30,7 +31,7 @@ const ServicesDetails = () => {
                     </div>
                 </div>
                 <div>
-                    <AddReview id={_id}></AddReview>
+                    <AddReview id={_id} revInfo={revInfo} setRevInfo={setRevInfo}></AddReview>
                 </div>
             </div>
             <div className='mt-10'>

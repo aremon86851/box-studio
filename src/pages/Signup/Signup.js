@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import { ReactContext } from '../../AuthProvider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 import SocialLogin from '../../shared/SoialLogin/SoialLogin'
+import { useTitle } from '../../hooks/useTitle';
 
 const Signup = () => {
     const { createUser } = useContext(ReactContext)
+    useTitle('Signup')
     const handleSubmit = event => {
         event.preventDefault()
         const form = event.target;

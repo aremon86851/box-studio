@@ -2,9 +2,11 @@ import React from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { Link } from 'react-router-dom';
+import { useTitle } from '../../hooks/useTitle';
 
 const HomeService = ({ service }) => {
     const { description, price, title, _id, img } = service
+    useTitle('Service Details')
     return (
         <div className="card bg-base-100 shadow-xl">
             <PhotoProvider>

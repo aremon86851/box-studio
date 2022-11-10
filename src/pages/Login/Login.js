@@ -4,9 +4,12 @@ import { ReactContext } from '../../AuthProvider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 import SocialLogin from '../../shared/SoialLogin/SoialLogin'
 import { jwtToken } from '../../utilitis/utility';
+import { useTitle } from '../../hooks/useTitle';
 
 const Login = () => {
     const { login } = useContext(ReactContext)
+    useTitle('Login')
+    // Handler
     const handleLogin = event => {
         event.preventDefault()
         const form = event.target;

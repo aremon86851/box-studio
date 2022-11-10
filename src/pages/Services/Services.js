@@ -4,10 +4,12 @@ import {
     useLoaderData
 } from 'react-router-dom';
 import { ReactContext } from '../../AuthProvider/AuthProvider';
+import { useTitle } from '../../hooks/useTitle';
 import HomeService from '../../shared/HomeService/HomeService';
 
 const Services = () => {
     const services = useLoaderData()
+    useTitle('Services')
     const { loading } = useContext(ReactContext)
     if (loading) {
         return <button className="btn btn-square loading bg-white text-black border-0"></button>

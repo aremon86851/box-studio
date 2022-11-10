@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import { useTitle } from '../../hooks/useTitle';
 
 const Update = () => {
     const infos = useLoaderData()
+    useTitle('Updated page')
+    // update handler
     const handleUpdate = event => {
         event.preventDefault();
         const reviews = event.target.description.value;
