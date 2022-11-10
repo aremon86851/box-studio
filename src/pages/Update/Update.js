@@ -11,7 +11,7 @@ const Update = () => {
         event.preventDefault();
         const reviews = event.target.description.value;
         fetch(`https://assignment-11-server-teal-eight.vercel.app/update/${infos._id}`, {
-            method: 'PUT',
+            method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
             },
